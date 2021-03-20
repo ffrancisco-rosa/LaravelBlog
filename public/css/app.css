@@ -31432,6 +31432,15 @@ select {
           animation: bounce 1s infinite;
 }
 
+.background-image {
+  background-image: url('https://cdn.pixabay.com/photo/2020/12/18/20/52/hacker-5842975_960_720.jpg');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  height: 600px;
+}
+
 @media (min-width: 640px) {
   .sm\:container {
     width: 100%;
@@ -184466,4 +184475,3 @@ select {
             animation: bounce 1s infinite;
   }
 }
-
