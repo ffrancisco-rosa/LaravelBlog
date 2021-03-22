@@ -3,7 +3,7 @@
 @section('content')
     <div class="w-4/5 m-auto text-left">
         <div class="py-16">
-            <h1 class="text-6xl">Create Post</h1>
+            <h1 class="text-6xl">Edit Post</h1>
         </div>
     </div>
     @if ($errors->any())
@@ -19,19 +19,13 @@
     @endif
 
     <div class="w-4/5 pt-20 m-auto">
-        <form action="/blog" method="POST" enctype="multipart/form-data">
+        <form action="/blog/{{ $post->slug }}" method="POST" enctype="multipart/form-data">
             @csrf
-            <input type="text" name="title" placeholder="Title..." class="bg-transparent block border-0 border-b-2 w-full h-20 text-6xl outline-none">
-            <textarea name="description" placeholder="Description..." class="py-20 bg-transparent block border-0 border-b-2 w-full h-60 text-xl outline-none"></textarea>
+            @method('PUT')
 
-            <div class="bg-grey-lighter pt-16">
-                <label class="w-44 flex flex-col items-center px-2 py-3 bg-white-rounded-lg shadow-lg tracking-wide uppercase border-blue cursor-pointer">
-                    <span class="mt-2 text-base leading-normal">
-                        Select a file
-                    </span>
-                    <input type="file" name="image" class="hidden">
-                </label>
-            </div>
+            <input type="text" name="title" value="{{ $post->title }}" class="bg-transparent block border-0 border-b-2 w-full h-20 text-6xl outline-none">
+            <textarea name="description" class="py-20 bg-transparent block border-0 border-b-2 w-full h-60 text-xl outline-none">{{ $post->description }}"</textarea>
+
             <button type="submit" class="uppercase mt-14 bg-blue-500 text-gray-100 text-lg font-extrabold py-2 px-6 rounded-3xl">
                 Submit
             </button>
